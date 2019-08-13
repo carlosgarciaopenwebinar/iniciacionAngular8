@@ -1,14 +1,10 @@
-<table>
+<table style="width: 100%; border: 1px solid black;">
     <tr>
         <th>Emisor</th>
         <th>Titulo</th>
     </tr>
-    <tr>
-        <td>{{correos[0].emisor}}</td>
-        <td>{{correos[0].titulo}}</td>
-    </tr>
-    <tr>
-        <td>{{correos[1].emisor}}</td>
-        <td>{{correos[1].titulo}}</td>
+    <tr *ngFor="let correo of correos">
+        <td>{{correo.emisor}}</td>
+        <td>{{correo.titulo}}</td>
     </tr>
 </table>
