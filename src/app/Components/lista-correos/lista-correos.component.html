@@ -4,10 +4,10 @@
         <th>Emisor</th>
         <th>Titulo</th>
     </tr>
-    <tr *ngFor="let correo of correos index as i;">
+    <tr *ngFor="let correo of correos; index as i;">
         <td>
-            <input type="radio" name="leido-{{i}}" value="si"> Si
-            <input type="radio" name="leido-{{i}}" value="no"> No
+            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=true> Si
+            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=false> No
         </td>
         <td>{{correo.emisor}}</td>
         <td>{{correo.titulo}}</td>
