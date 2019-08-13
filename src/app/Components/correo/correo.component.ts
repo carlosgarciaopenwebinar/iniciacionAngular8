@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CorreoComponent implements OnInit {
 
-  constructor() { }
+  correo: any;
+
+  constructor() { 
+    this.correo = {
+      titulo: "Titulo del Email",
+      cuerpo: `Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email
+        Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email,
+        Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email`,
+      emisor: 'correoEmisor@openWebinar.inv',
+      destinatario: 'correoReceptor@openWebinar.inv'
+    }
+  }
 
   ngOnInit() {
   }
