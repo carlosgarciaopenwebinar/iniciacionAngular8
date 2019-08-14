@@ -13,10 +13,10 @@
         <td>{{correo.emisor}}</td>
         <td>{{correo.titulo}}</td>
         <td>
-            <button (click)="clickResponder()">Responder</button>
+            <button (click)="clickResponder(correo)">Responder</button>
         </td>
     </tr>
 </table>
 
 <!-- Primero, realizaremos una prueba fuera -->
-<app-nuevo-correo *ngIf="responder" correo="{titulo='A'}"></app-nuevo-correo>
+<app-nuevo-correo *ngIf="responder" [correo]="correoAResponder"></app-nuevo-correo>
