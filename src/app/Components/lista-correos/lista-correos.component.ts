@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListaCorreosComponent implements OnInit {
 
   correos: any[];
+  responder: boolean;
 
   constructor() {
     const correo1 = {
