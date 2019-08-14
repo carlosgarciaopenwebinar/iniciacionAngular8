@@ -30,6 +30,23 @@ export class ListaCorreosComponent implements OnInit {
     this.correos = [];
     this.correos.push(correo1);
     this.correos.push(correo2);
+
+    this.correos.push({
+      titulo: "Titulo del 3",
+      cuerpo: `Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email
+        Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuer`,
+      emisor: 'correoEmisor3@openWebinar.inv',
+      destinatario: 'correoReceptor@openWebinar.inv',
+      leido: false,
+    });
+    this.correos.push({
+      titulo: "Titulo del 4",
+      cuerpo: `Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email
+        Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuer`,
+      emisor: 'correoEmisor4@openWebinar.inv',
+      destinatario: 'correoReceptor@openWebinar.inv',
+      leido: false,
+    });
   }
 
   ngOnInit() {
