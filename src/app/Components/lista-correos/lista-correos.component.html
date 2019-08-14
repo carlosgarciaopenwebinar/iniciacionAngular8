@@ -15,8 +15,9 @@
         <td>
             <button (click)="clickResponder(correo)">Responder</button>
         </td>
+        <app-nuevo-correo *ngIf="responder" [correo]="correoAResponder"></app-nuevo-correo>
     </tr>
 </table>
 
 <!-- Primero, realizaremos una prueba fuera -->
-<app-nuevo-correo *ngIf="responder" [correo]="correoAResponder"></app-nuevo-correo>
+<!-- <app-nuevo-correo *ngIf="responder" [correo]="correoAResponder"></app-nuevo-correo> -->
