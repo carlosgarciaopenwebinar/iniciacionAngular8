@@ -45,13 +45,18 @@ export class NuevoCorreoComponent implements OnInit {
     correo.emisor = 'correoEmisor1@openWebinar.inv';
 
     this.onReset();
-    this.servicioAvisos.showMenssage("Correo Enviado");
+    this.servicioAvisos.showMenssage(`Correo enviado a ${correo.emisor}`);
   }
 
   onReset() {
     this.submitted = false;
     this.nuevoCorreo.reset();
     this.accionRealizada.emit();
+  }
+
+  cancel(){
+    this.onReset();
+    this.servicioAvisos.showMenssage("Envio Cancelado");
   }
 
 }
