@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AvisosComponent implements OnInit {
 
-  constructor() { }
+  mensaje: string;
+  visible: boolean;
 
-  ngOnInit() {
+  constructor() { 
+    this.mensaje = "Correo enviado";
+    this.visible = false;
   }
 
+  ngOnInit() {
+    this.showMenssage('Correo Enviado');
+  }
+
+  showMenssage(mensaje: string){
+    this.mensaje = mensaje;
+    this.visible = true;
+    this.waitToHide();
+  }
+
+  hideMenssage(){
+    this.visible = false;
+    this.mensaje = '';
+  }
+
+  waitToHide(){
+    setTimeout(() => {
+      this.hideMenssage();
+    }, 2000);
+  }
 }
