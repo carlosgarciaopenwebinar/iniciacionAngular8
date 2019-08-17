@@ -15,7 +15,7 @@ export class ListaCorreosComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.getRecibidos());
+    this.getRecibidos();
   }
 
   clickResponder(correo) {
@@ -29,10 +29,31 @@ export class ListaCorreosComponent implements OnInit {
   getRecibidos() {
     this.gmail.getRecibidos().subscribe(
       (response) => {
-      const mensajes = response.messages;
-      console.log("LISTA RECIBIDOS:", mensajes);
+        const mensajes = response.messages;
+        
+        mensajes.forEach(element => {
+          this.getMensaje(element.id);
+        });
       },
-      (error) => this.error(error),
+      (error) => this.error(error)
+    );
+  }
+
+  getMensaje(id: string){
+    this.gmail.getMessage(id).subscribe(
+      (response) => {
+        const emisor = response.payload.headers.find(e => e.name === "From");
+        const subject = response.payload.headers.find(e => e.name === "Subject");
+
+        const mensage = {
+          id: response.id,
+          cuerpo: response.snippet,
+          emisor: emisor? emisor.value : undefined,
+          titulo: subject? subject.value : undefined,
+        };
+        this.correos.push(mensage);
+      },
+      (error) => this.error(error)
     );
   }
 
