@@ -1,25 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
+// Main files
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// Components
 import { CorreoComponent } from './Components/correo/correo.component';
 import { ListaCorreosComponent } from './Components/lista-correos/lista-correos.component';
 import { NuevoCorreoComponent } from './Components/nuevo-correo/nuevo-correo.component';
 import { AvisosComponent } from './Components/avisos/avisos.component';
-import { CorreosRecibidosComponent } from './Views/correos-recibidos/correos-recibidos.component';
 import { LoginComponent } from './Components/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+
+// View and Menu
+import { MenuComponent } from './Menu/menu/menu.component';
+import { HomeComponent } from './Views/home/home.component';
+import { EnviarComponent } from './Views/enviar/enviar.component';
+import { VisualizarCorreoComponent } from './Views/visualizar-correo/visualizar-correo.component';
+import { CorreosRecibidosComponent } from './Views/correos-recibidos/correos-recibidos.component';
+
+// External Libs
 import {
   GoogleApiModule,
   NgGapiClientConfig,
   NG_GAPI_CONFIG,
 } from "ng-gapi";
-import { MenuComponent } from './Menu/menu/menu.component';
-import { HomeComponent } from './Views/home/home.component';
-import { EnviarComponent } from './Views/enviar/enviar.component';
-import { VisualizarCorreoComponent } from './Views/visualizar-correo/visualizar-correo.component';
 
 let gapiClientConfig: NgGapiClientConfig = {
   client_id: "395684135333-7cs6mldgfgr2q531bu51el0j4hdosv0s.apps.googleusercontent.com",
@@ -59,6 +67,8 @@ let gapiClientConfig: NgGapiClientConfig = {
       provide: NG_GAPI_CONFIG,
       useValue: gapiClientConfig
     }),
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
