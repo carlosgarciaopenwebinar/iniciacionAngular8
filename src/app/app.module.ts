@@ -19,6 +19,7 @@ import {
 import { MenuComponent } from './Menu/menu/menu.component';
 import { HomeComponent } from './Views/home/home.component';
 import { EnviarComponent } from './Views/enviar/enviar.component';
+import { VisualizarCorreoComponent } from './Views/visualizar-correo/visualizar-correo.component';
 
 let gapiClientConfig: NgGapiClientConfig = {
   client_id: "395684135333-7cs6mldgfgr2q531bu51el0j4hdosv0s.apps.googleusercontent.com",
@@ -45,7 +46,8 @@ let gapiClientConfig: NgGapiClientConfig = {
     LoginComponent,
     MenuComponent,
     HomeComponent,
-    EnviarComponent
+    EnviarComponent,
+    VisualizarCorreoComponent
   ],
   imports: [
     BrowserModule,

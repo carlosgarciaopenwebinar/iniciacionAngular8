@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-correo',
@@ -9,18 +10,17 @@ export class CorreoComponent implements OnInit {
 
   correo: any;
 
-  constructor() { 
+  constructor(private route: ActivatedRoute) { 
     this.correo = {
-      titulo: "Titulo del Email",
-      cuerpo: `Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email
-        Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email,
-        Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email`,
-      emisor: 'correoEmisor@openWebinar.inv',
-      destinatario: 'correoReceptor@openWebinar.inv'
+      titulo: "",
+      cuerpo: "",
+      emisor: ""
     }
   }
 
   ngOnInit() {
+    const datosRecibidos = this.route.snapshot.paramMap.get('correo');
+    this.correo = JSON.parse(datosRecibidos);
   }
 
 }
