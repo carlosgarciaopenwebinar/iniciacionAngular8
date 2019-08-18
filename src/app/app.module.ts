@@ -22,6 +22,9 @@ import { EnviarComponent } from './Views/enviar/enviar.component';
 import { VisualizarCorreoComponent } from './Views/visualizar-correo/visualizar-correo.component';
 import { CorreosRecibidosComponent } from './Views/correos-recibidos/correos-recibidos.component';
 
+// Material Libs
+import { MatButtonModule } from '@angular/material/button';
+
 // External Libs
 import {
   GoogleApiModule,
