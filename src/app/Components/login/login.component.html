@@ -1,23 +1,15 @@
 <div *ngIf="login.isUserSignedIn()">
-	<div>
-		<p>Nombre: {{login.profile.ig}}</p>
-		<p>Email: {{login.profile.U3}}</p>
-		<hr>
-		<button (click)="signOut()">Desconectar</button>
-		<hr>
-	</div>
+  <mat-card class="col-md-4 card">
+    <mat-card-header>
+      <mat-card-title>{{login.profile.ig}}</mat-card-title>
+      <mat-card-subtitle>{{login.profile.U3}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="signOut()">Desconectar</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
+
 <div *ngIf="!login.isUserSignedIn()">
-	<hr>
-	<button (click)="signIn()"><span>Conectar con Google</span></button>
-	<hr>
-</div>
-<h3>Raised Buttons</h3>
-<div class="example-button-row">
-  <button mat-raised-button>Basic</button>
-  <button mat-raised-button color="primary">Primary</button>
-  <button mat-raised-button color="accent">Accent</button>
-  <button mat-raised-button color="warn">Warn</button>
-  <button mat-raised-button disabled>Disabled</button>
-  <a mat-raised-button routerLink=".">Link</a>
+  <button mat-raised-button color="primary" (click)="signIn()">Conectar con Google</button>
 </div>

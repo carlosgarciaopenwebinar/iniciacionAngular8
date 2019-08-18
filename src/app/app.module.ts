@@ -24,6 +24,9 @@ import { CorreosRecibidosComponent } from './Views/correos-recibidos/correos-rec
 
 // Material Libs
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
 
 // External Libs
 import {
@@ -71,7 +74,10 @@ let gapiClientConfig: NgGapiClientConfig = {
       useValue: gapiClientConfig
     }),
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
