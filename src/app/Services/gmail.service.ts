@@ -13,7 +13,11 @@ export class GmailService {
     const url = "https://www.googleapis.com/gmail/v1/users/"+this.login.userId+"/messages?";
     const authToken = this.login.tokenUser;
     let headers = new HttpHeaders({ Authorization: `Bearer ${authToken}`});
-    return this.http.get(url, { headers } );
+
+    let params = new HttpParams();
+    params = params.append('maxResults', '10');
+
+    return this.http.get(url, { headers:headers, params: params } );
   };
 
   public getMessage = function (id: string) {
