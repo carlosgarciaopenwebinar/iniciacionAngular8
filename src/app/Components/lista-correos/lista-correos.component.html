@@ -8,8 +8,8 @@
 
     <ng-container *ngIf="i>=2">
       <td mat-cell *matCellDef="let element">  
-        <button mat-raised-button color="primary" (click)="verDetalle(element)" class="mr-3">Ver</button>
-        <button mat-raised-button color="primary" (click)="expandedElement = expandedElement === element ? null : element">Responder</button>
+        <button mat-raised-button color="warn" (click)="verDetalle(element)" class="mr-3">Ver</button>
+        <button mat-raised-button color="accent" (click)="expandedElement = expandedElement === element ? null : element">Responder</button>
       </td>
     </ng-container>
   </ng-container>

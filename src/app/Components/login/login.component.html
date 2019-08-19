@@ -5,11 +5,11 @@
       <mat-card-subtitle>{{login.profile.U3}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="signOut()">Desconectar</button>
+      <button mat-raised-button color="warn" (click)="signOut()">Desconectar</button>
     </mat-card-actions>
   </mat-card>
 </div>
 
 <div *ngIf="!login.isUserSignedIn()">
-  <button mat-raised-button color="primary" (click)="signIn()">Conectar con Google</button>
+  <button mat-raised-button color="warn" (click)="signIn()">Conectar con Google</button>
 </div>
