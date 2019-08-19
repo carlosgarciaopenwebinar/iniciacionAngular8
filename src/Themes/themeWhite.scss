@@ -11,3 +11,9 @@ $light-theme: mat-light-theme(
   $palette-accent,
   $palette-warn
 );
+
+/* Exportar variables para usar en scss */
+$primary-color: mat-color($palette-primary);
+$accent-color: mat-color($palette-accent);
+$warn-color: mat-color($palette-warn);
+$primary-contrast-color: mat-contrast($palette-primary, A200);
