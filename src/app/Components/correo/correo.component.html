@@ -1,3 +1,7 @@
-<p>Asunto: {{correo.titulo}}</p>
-<p>De: {{correo.emisor}}</p>
-<p>Mensaje: {{correo.cuerpo}}</p>
+<mat-card>
+<mat-card-header>
+    <mat-card-title>Asunto: {{correo.titulo}}</mat-card-title>
+    <mat-card-subtitle>De: {{correo.emisor}}</mat-card-subtitle>
+</mat-card-header>
+<mat-card-content>{{correo.cuerpo}}</mat-card-content>
+</mat-card>
