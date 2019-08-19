@@ -1,5 +1,11 @@
 @import 'Themes/themeWhite.scss';
+@import 'Themes/themeRed.scss';
 @include angular-material-theme($light-theme);
+
+.other-theme {
+    @include angular-material-theme($dark-theme);
+}
+
 
 html, body { height: 100%; }
 body { 

@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$palette-primary: mat-palette($mat-red, 500);
+$palette-accent: mat-palette($mat-deep-purple);
+$palette-warn: mat-palette($mat-blue, 800);
+
+$dark-theme: mat-dark-theme(
+  $palette-primary,
+  $palette-accent,
+  $palette-warn
+);
+
+/* Exportar variables para usar en scss */
+$primary-red-color: mat-color($palette-primary);
