@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 import { MatTableDataSource } from '@angular/material/table';
 import { AvisosService } from 'src/app/Services/avisos.service';
+import { Correo } from 'src/app/Interfaces/correo';
 
 @Component({
   selector: 'app-lista-correos',
@@ -19,10 +20,10 @@ import { AvisosService } from 'src/app/Services/avisos.service';
 })
 export class ListaCorreosComponent implements OnInit {
 
-  correos: any[];
+  correos: Correo[];
   columnsToDisplay: string[] = ['Emisor', 'Asunto', 'Acciones'];
   displayedColumns: string[] = ['emisor', 'titulo', 'id'];
-  dataSource = new MatTableDataSource<any>();
+  dataSource = new MatTableDataSource<Correo>();
   expandedElement: any | null;
 
   constructor(private gmail: GmailService, private router: Router, private servicioAvisos: AvisosService) {
