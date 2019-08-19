@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 // Main files
@@ -22,14 +21,8 @@ import { EnviarComponent } from './Views/enviar/enviar.component';
 import { VisualizarCorreoComponent } from './Views/visualizar-correo/visualizar-correo.component';
 import { CorreosRecibidosComponent } from './Views/correos-recibidos/correos-recibidos.component';
 
-// Material Libs
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatInputModule } from '@angular/material/input';
-import { MatTableModule } from '@angular/material/table';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+// Modules
+import { MaterialModule } from './Modules/material/material.module';
 
 // External Libs
 import {
@@ -76,14 +69,7 @@ let gapiClientConfig: NgGapiClientConfig = {
       provide: NG_GAPI_CONFIG,
       useValue: gapiClientConfig
     }),
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatDividerModule,
-    MatInputModule,
-    MatTableModule,
-    MatSnackBarModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
