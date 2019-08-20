@@ -5,6 +5,7 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 import { MatTableDataSource } from '@angular/material/table';
 import { AvisosService } from 'src/app/Services/avisos.service';
 import { Correo } from 'src/app/Interfaces/correo';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lista-correos',
@@ -26,8 +27,13 @@ export class ListaCorreosComponent implements OnInit {
   dataSource = new MatTableDataSource<Correo>();
   expandedElement: any | null;
 
+  // Subscripciones
+  recibidosSubscription: Subscription;
+  mensajesSubscription: Subscription[];
+
   constructor(private gmail: GmailService, private router: Router, private servicioAvisos: AvisosService) {
     this.correos = [];
+    this.mensajesSubscription = [];
   }
 
   ngOnInit() {
@@ -39,9 +45,9 @@ export class ListaCorreosComponent implements OnInit {
   }
 
   getRecibidos() {
-    this.gmail.getRecibidos().subscribe(
+    this.recibidosSubscription = this.gmail.getRecibidos().subscribe(
       (response) => {
-        const mensajes = response.messages;
+        const mensajes = response['messages'];
         
         mensajes.forEach(element => {
           this.getMensaje(element.id);
@@ -52,14 +58,14 @@ export class ListaCorreosComponent implements OnInit {
   }
 
   getMensaje(id: string){
-    this.gmail.getMessage(id).subscribe(
+    this.mensajesSubscription.push(this.gmail.getMessage(id).subscribe(
       (correo) => {
         
         this.dataSource.data.push(correo);
         this.dataSource._updateChangeSubscription();
       },
       (error) => this.error(error)
-    );
+    ));
   }
 
   error(error){
@@ -68,5 +74,16 @@ export class ListaCorreosComponent implements OnInit {
 
   verDetalle(correo){
     this.router.navigate(['/mail', {correo: JSON.stringify(correo)}]);
+  }
+
+  ngOnDestroy(){
+    if(!this.recibidosSubscription.closed){
+      this.recibidosSubscription.unsubscribe();
+    }
+    this.mensajesSubscription.forEach(element => {
+      if(!element.closed){
+        element.unsubscribe();
+      }
+    });
   }
 }
